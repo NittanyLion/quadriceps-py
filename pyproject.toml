@@ -21,7 +21,7 @@ Repository = "https://github.com/NittanyLion/quadriceps-py"
 where = ["src"]
 
 [tool.setuptools.package-data]
-quadriceps = ["data/index.tsv", "data/gh/*.csv", "data/le/*.csv"]
+quadriceps = ["data/index.tsv", "data/rules.bin"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests", "src"]

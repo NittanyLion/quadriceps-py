@@ -1,5 +1,9 @@
 # quadriceps (Python)
 
+> **Paper:** J. Pinkse, *Positive weight Hermite and Legendre quadrature rules* — arXiv: **[ARXIV-LINK-TBA](https://arxiv.org/abs/ARXIV-LINK-TBA)** (link to be filled in on publication)
+>
+> **Data deposit:** Zenodo — DOI: **[ZENODO-DOI-TBA](https://doi.org/ZENODO-DOI-TBA)** (link to be filled in on publication)
+
 Positive-weight cubature rules in several dimensions, for two weights:
 
 | function | weight (default) | one-dimensional cousin |
@@ -97,13 +101,17 @@ returned; the data contain no such case, and the tests check that.)
 ### Other functions
 
 * `available(family)` lists the stored rules as `RuleInfo` records (`family`, `d`, `p`, `q`,
-  `n`, `moller`, `relerr`, `minweight`, `interior`, `origin`, `file`); `family` is `"gh"` or
-  `"le"`.
+  `n`, `moller`, `relerr`, `minweight`, `interior`, `origin`, `source_id`); `family` is `"gh"`
+  or `"le"`.
 * `nnodes(family, d, q, *, p, pragmatic)` gives a node count without building the rule.
 * `ruleinfo(family, d, q, *, p, pragmatic)` describes the rule and its origin.
 * `exactness_error(X, w, p, family)` measures how exact a rule is.
 
 Every function has a full docstring (`help(ghpos)`).
+
+All rules are stored in one binary file, `src/quadriceps/data/rules.bin`, with `index.tsv` next
+to it as the catalog; [`FORMAT.md`](FORMAT.md) specifies the format, which the Julia and R
+packages share byte for byte.
 
 ## Accuracy
 

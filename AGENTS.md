@@ -2,23 +2,37 @@
 
 Guidance for coding agents (and people) working in this repository.
 
+## Paper and deposit — links to fill in
+
+The rules are described in J. Pinkse, *Positive weight Hermite and Legendre quadrature rules*,
+and deposited on Zenodo. Neither is public yet, so the links are placeholders:
+
+* arXiv: **[ARXIV-LINK-TBA](https://arxiv.org/abs/ARXIV-LINK-TBA)**
+* Zenodo: **[ZENODO-DOI-TBA](https://doi.org/ZENODO-DOI-TBA)**
+
+When the author supplies them, replace the tokens `ARXIV-LINK-TBA` and `ZENODO-DOI-TBA`
+everywhere they occur (`grep -rn 'LINK-TBA\|DOI-TBA' .`), in all three packages (Quadriceps.jl,
+quadriceps-py, quadriceps-r), and drop the "to be filled in" remarks. Keep the block at the top
+of `README.md`.
+
 ## What this is
 
 The Python twin of Quadriceps.jl: positive-weight cubature rules for the Gaussian weight
 (`ghpos`) and the uniform weight on the cube (`lepos`). The Julia package is the master copy.
-Its `build/update.sh` refreshes `src/quadriceps/data/`, `RULES.md` and `NOTICE.md` here from
-the Julia package, runs the tests, commits and pushes. **Never edit those three by hand**, and
+Its `build/update.sh` refreshes `src/quadriceps/data/`, `RULES.md`, `FORMAT.md` and `NOTICE.md`
+here from the Julia package, runs the tests, commits and pushes. **Never edit those by hand**
+(and never add per-rule CSV or text files: the rules live in the one binary file), and
 make behavior changes in all three packages (Julia, Python, R) together.
 
 ## Layout
 
 | path | what it holds |
 |---|---|
-| `src/quadriceps/_catalog.py` | `RuleInfo`, the catalog (`INDEX`, read from `data/index.tsv` at import), rule loader, cache, `available` |
+| `src/quadriceps/_catalog.py` | `RuleInfo`, the catalog (`INDEX`, read from `data/index.tsv` at import), reader of `data/rules.bin` (format `QUADRICEPS1`, see `FORMAT.md`), cache, `available` |
 | `src/quadriceps/_plan.py` | which rule answers a request: `best_stored`, `atom`, `cheapest` (dynamic program over splits of `d`), `NoRuleError`, `gauss1d`, `tensor`, `materialize` |
 | `src/quadriceps/_api.py` | `ghpos`, `lepos`, `nnodes`, `ruleinfo`, and the `normalize=False` transforms |
 | `src/quadriceps/_verify.py` | `exactness_error` |
-| `src/quadriceps/data/` | the rules and their catalog — generated |
+| `src/quadriceps/data/` | `rules.bin` (all rules, one binary file) and `index.tsv` (catalog) — generated |
 | `tests/` | every stored rule, both conventions, the fallback, the error paths; docstring examples run as doctests |
 
 ## Commands

@@ -130,3 +130,20 @@ def test_results_are_copies():
     w[:] = 0
     X2, w2 = ghpos(2, 3)
     assert np.sum(w2) == pytest.approx(1) and np.any(X2 != 0)
+
+
+def test_data_file():
+    from importlib import resources
+
+    from quadriceps._catalog import BIN, INDEX
+
+    data = resources.files("quadriceps") / "data"
+    with (data / "rules.bin").open("rb") as f:
+        header = f.readline()
+        f.seek(0, 2)
+        size = f.tell()
+    assert header.startswith(b"QUADRICEPS1 fmt=1 endian=little cells=%d index_fields=8 float=binary64" % len(INDEX))
+    assert BIN.keys() == INDEX.keys()
+    assert all(BIN[k][0] == r.n and BIN[k][3] == r.source_id for k, r in INDEX.items())
+    assert size == max(off + nb for _, off, nb, _ in BIN.values())             # no slack
+    assert sorted(p.name for p in data.iterdir() if not p.name.startswith("__")) == ["index.tsv", "rules.bin"]
