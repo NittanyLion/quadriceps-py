@@ -20,7 +20,7 @@ of `README.md`.
 The Python twin of Quadriceps.jl: positive-weight cubature rules for the Gaussian weight
 (`ghpos`) and the uniform weight on the cube (`lepos`). The Julia package is the master copy.
 Its `build/update.sh` refreshes `src/quadriceps/data/`, `RULES.md`, `FORMAT.md` and `NOTICE.md`
-here from the Julia package, runs the tests, commits and pushes. **Never edit those by hand**
+here from the Julia package, runs the tests, commits and pushes. The `GENERATED credits` block of `README.md` is filled in by the same script. **Never edit those by hand**
 (and never add per-rule CSV or text files: the rules live in the one binary file), and
 make behavior changes in all three packages (Julia, Python, R) together.
 
