@@ -129,6 +129,9 @@ All nodes of the Le rules lie strictly inside the cube.
 ## Whose rules these are
 
 <!-- BEGIN GENERATED credits -->
+122 of the 148 rules were computed from scratch by the author. A further 11 (Legendre) rules were
+obtained by node elimination started from Diallo and Worku's published rules. Finally, 15 are
+rules from the literature (copied in, or found again by the author's search and recognized).
 <!-- END GENERATED credits -->
 `ruleinfo` and the `origin` column
 of [`RULES.md`](RULES.md) say which is which; cite the source named there when you use such a
