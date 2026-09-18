@@ -27,10 +27,8 @@ Julia package whenever a smaller rule is found.
 
 ## Installation
 
-The repository is private. With access to it:
-
 ```
-pip install git+ssh://git@github.com/NittanyLion/quadriceps-py.git
+pip install quadriceps
 ```
 
 Python 3.9 or later; the only dependency is numpy.
