@@ -1,5 +1,7 @@
 # quadriceps (Python)
 
+[![CI](https://github.com/NittanyLion/quadriceps-py/actions/workflows/ci.yml/badge.svg)](https://github.com/NittanyLion/quadriceps-py/actions/workflows/ci.yml)
+
 > **Paper:** J. Pinkse, *Positive weight Hermite and Legendre quadrature rules* — arXiv: **[ARXIV-LINK-TBA](https://arxiv.org/abs/ARXIV-LINK-TBA)** (link to be filled in on publication)
 >
 > **Data deposit:** Zenodo — DOI: **[ZENODO-DOI-TBA](https://doi.org/ZENODO-DOI-TBA)** (link to be filled in on publication)
@@ -8,12 +10,12 @@ Positive-weight cubature rules in several dimensions, for two weights:
 
 | function | weight (default) | one-dimensional cousin |
 |---|---|---|
-| `ghpos(d, q)` | standard normal density `N(0, I_d)` on `R^d` | `numpy.polynomial.hermite.hermgauss(q)` |
-| `lepos(d, q)` | uniform density on `[0,1]^d` | `numpy.polynomial.legendre.leggauss(q)` |
+| `ghpos(d, q)` | standard normal density `N(0, I_d)` on `ℝᵈ` | `numpy.polynomial.hermite.hermgauss(q)` |
+| `lepos(d, q)` | uniform density on `[0,1]ᵈ` | `numpy.polynomial.legendre.leggauss(q)` |
 
-A rule of degree `p` is a set of `n` nodes `x_i ∈ R^d` and weights `w_i > 0` with
+A rule of degree `p` is a set of `n` nodes `x_i ∈ ℝᵈ` and weights `w_i > 0` with
 `Σ w_i f(x_i) = ∫ f(x) ω(x) dx` for every polynomial `f` of total degree `≤ p`. The product of
-`q`-node one-dimensional Gauss rules does this for `p = 2q - 1` with `q^d` nodes. The rules
+`q`-node one-dimensional Gauss rules does this for `p = 2q - 1` with `qᵈ` nodes. The rules
 stored here, the smallest positive-weight rules known to the author, do it with far fewer; at
 `d = 5` the saving is more than a factor of ten. They cover `2 ≤ d ≤ 5`. [`RULES.md`](RULES.md)
 lists every rule with its node count, Möller's lower bound, measured accuracy and origin.
@@ -52,7 +54,7 @@ X, w = ghpos(3, p=7)            # the first rule again, requested by its degree
 Both functions follow `hermgauss(q)` and `leggauss(q)`, with the dimension `d ≥ 1` in front.
 There, `q` is the number of nodes of the one-dimensional Gauss rule, which is exact to degree
 `2q - 1`. Here, `ghpos(d, q)` returns a `d`-dimensional rule of that same degree `p = 2q - 1`: a
-replacement for the `q^d`-node product grid, and for `d = 1` the `q`-node Gauss rule itself.
+replacement for the `qᵈ`-node product grid, and for `d = 1` the `q`-node Gauss rule itself.
 `X` is an `(n, d)` array, `w` an `(n,)` array of positive weights.
 
 To ask for a degree instead, pass the keyword `p`: `ghpos(d, p=7)`, `lepos(d, p=12)`. Any
@@ -66,8 +68,8 @@ normal density, which is what an expectation needs, so `normalize=True` is the d
 
 | | `normalize=True` (default) | `normalize=False` (numpy's convention) |
 |---|---|---|
-| `ghpos` | weight `(2π)^(-d/2) exp(-‖x‖²/2)`; weights sum to 1 | weight `exp(-‖x‖²)`; weights sum to `π^(d/2)` |
-| `lepos` | uniform density on `[0,1]^d`; weights sum to 1 | `∫ f(x) dx` over `[-1,1]^d`; weights sum to `2^d` |
+| `ghpos` | weight `(2π)⁻ᵈᐟ² exp(-‖x‖²/2)`; weights sum to 1 | weight `exp(-‖x‖²)`; weights sum to `πᵈᐟ²` |
+| `lepos` | uniform density on `[0,1]ᵈ`; weights sum to 1 | `∫ f(x) dx` over `[-1,1]ᵈ`; weights sum to `2ᵈ` |
 
 So `ghpos(1, q, normalize=False)` is `hermgauss(q)` and `lepos(1, q, normalize=False)` is
 `leggauss(q)`, up to the shape of `X`. For `Y ~ N(μ, LLᵀ)` use the nodes `μ + X @ L.T` with the

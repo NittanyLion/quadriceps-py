@@ -48,7 +48,7 @@ python3 -m pytest          # about 10 s; conftest.py pins BLAS to one thread
   it is the `q`-node Gauss rule. The degree is passed as the keyword `p`. Exactly one of the
   two. Internally everything works in `p`.
 * **Normalized frame inside.** Files, cache, tensor products and `exactness_error` use
-  `N(0, I_d)` for GH and the uniform density on `[0,1]^d` for Le, weights summing to 1.
+  `N(0, I_d)` for GH and the uniform density on `[0,1]ᵈ` for Le, weights summing to 1.
   `normalize=False` is applied once, at the end, in `_api.py`. One-dimensional GH factors come
   from `hermegauss` divided by `√(2π)`.
 * **`normalize=True` is the default**, unlike numpy's `hermgauss`. This is deliberate.
@@ -59,6 +59,9 @@ python3 -m pytest          # about 10 s; conftest.py pins BLAS to one thread
 * numpy is the only dependency. American spelling.
 
 ## Repository
+
+GitHub Actions (`.github/workflows/ci.yml`) runs the tests on every push to `main` and on pull
+requests; the unattended data updates trigger it too. Check `gh run list` after pushing.
 
 Private, `github.com/NittanyLion/quadriceps-py`, branch `main`. No license has been chosen yet;
 do not add one without the author.
