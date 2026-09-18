@@ -13,6 +13,7 @@ dependencies = ["numpy>=1.22"]
 
 [project.optional-dependencies]
 test = ["pytest"]
+lint = ["ruff"]
 
 [project.urls]
 Repository = "https://github.com/NittanyLion/quadriceps-py"
@@ -27,3 +28,12 @@ quadriceps = ["data/index.tsv", "data/rules.bin"]
 testpaths = ["tests", "src"]
 addopts = "--doctest-modules"
 pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py39"
+src = ["src"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "NPY", "RUF"]
+ignore = ["RUF001", "RUF002", "RUF003", "UP007", "UP045"]      # the docs use π, ², × and friends on purpose

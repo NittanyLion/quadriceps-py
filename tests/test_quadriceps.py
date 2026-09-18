@@ -32,7 +32,8 @@ def test_stored_rule(r):
     if r.family == "le":
         assert np.all((X > 0) & (X < 1))
     assert nnodes(r.family, r.d, p=r.p) <= r.n                  # a higher degree may be cheaper, never dearer
-    assert nnodes(r.family, r.d, p=r.p, pragmatic=True) == nnodes(r.family, r.d, p=r.p)   # no product beats a stored rule
+    # no product beats a stored rule
+    assert nnodes(r.family, r.d, p=r.p, pragmatic=True) == nnodes(r.family, r.d, p=r.p)
 
 
 def test_one_dimension():
@@ -147,3 +148,14 @@ def test_data_file():
     assert all(BIN[k][0] == r.n and BIN[k][3] == r.source_id for k, r in INDEX.items())
     assert size == max(off + nb for _, off, nb, _ in BIN.values())             # no slack
     assert sorted(p.name for p in data.iterdir() if not p.name.startswith("__")) == ["index.tsv", "rules.bin"]
+
+
+def test_public_api():
+    # the analog of Aqua's export checks: everything in __all__ exists and is documented
+    import quadriceps
+
+    assert sorted(quadriceps.__all__) == sorted(set(quadriceps.__all__))
+    for name in quadriceps.__all__:
+        obj = getattr(quadriceps, name)
+        assert obj.__doc__ and obj.__doc__.strip(), name
+    assert quadriceps.__version__

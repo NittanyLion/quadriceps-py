@@ -24,10 +24,10 @@ This package is the Python twin of Quadriceps.jl and the R package quadriceps; t
 their data and their conventions.
 """
 
+from ._api import ghpos, lepos, nnodes, ruleinfo
 from ._catalog import RuleInfo, available
 from ._plan import NoRuleError
-from ._api import ghpos, lepos, nnodes, ruleinfo
 from ._verify import exactness_error
 
 __version__ = "0.1.0"
-__all__ = ["ghpos", "lepos", "nnodes", "ruleinfo", "available", "exactness_error", "RuleInfo", "NoRuleError"]
+__all__ = ["NoRuleError", "RuleInfo", "available", "exactness_error", "ghpos", "lepos", "nnodes", "ruleinfo"]

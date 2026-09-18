@@ -104,7 +104,7 @@ def _read_bin_index() -> dict:
         raw = f.read(cells * NIDX * 8)
     out = {}
     for i in range(cells):
-        fam, d, p, q, n, off, nb, sid = struct.unpack_from("<8q", raw, NIDX * 8 * i)
+        fam, d, p, _q, n, off, nb, sid = struct.unpack_from("<8q", raw, NIDX * 8 * i)
         if nb != n * (d + 1) * 8:
             raise RuntimeError(f"rules.bin: cell d={d} p={p} has nbytes={nb}")
         out[(FAMILIES[fam], d, p)] = (n, off, nb, sid)
