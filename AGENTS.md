@@ -60,6 +60,9 @@ python3 -m pytest          # about 10 s; conftest.py pins BLAS to one thread
 
 ## Repository
 
+`authored_by.svg` is the author's shield (the same file as in MemoryLayouts.jl); the README shows
+it after the other badges. Do not replace it with a generated shields.io badge.
+
 Quality gate, the analog of Aqua.jl: `ruff check .` must pass (configuration in
 `pyproject.toml`; CI runs it), and `test_public_api` checks that everything in `__all__` exists
 and is documented. The logo is `logo.svg`, a copy of the one in Quadriceps.jl.
