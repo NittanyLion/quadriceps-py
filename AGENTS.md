@@ -70,5 +70,6 @@ and is documented. The logo is `logo.svg`, a copy of the one in Quadriceps.jl.
 GitHub Actions (`.github/workflows/ci.yml`) runs the tests on every push to `main` and on pull
 requests; the unattended data updates trigger it too. Check `gh run list` after pushing.
 
-Private, `github.com/NittanyLion/quadriceps-py`, branch `main`. No license has been chosen yet;
-do not add one without the author.
+Private, `github.com/NittanyLion/quadriceps-py`, branch `main`. MIT license (`LICENSE`, and `license`
+in `pyproject.toml`; author's choice 2026-09-19); `NOTICE.md` carries the notices of the rules
+that descend from published ones.

@@ -144,3 +144,8 @@ derived files.
 pip install -e .[test]
 python -m pytest
 ```
+
+## License
+
+MIT; see [`LICENSE`](LICENSE). The rules that descend from, or coincide with, published rules
+carry their sources' notices in [`NOTICE.md`](NOTICE.md).
