@@ -95,12 +95,14 @@ def test_pragmatic_fallback():
     assert np.array_equal(ghpos(4, 5, pragmatic=True)[0], ghpos(4, 5)[0])
     assert np.array_equal(lepos(2, 11, pragmatic=True)[1], lepos(2, 11)[1])
     # beyond the stored degrees: a valid rule, cheaper than the product grid
-    q = max(r.q for r in available("gh") if r.d == 3) + 1
-    X, w = ghpos(3, q, pragmatic=True)
-    assert X.shape == (nnodes("gh", 3, q, pragmatic=True), 3)
+    # (d = 4: the split 2 + 2 into stored d = 2 rules beats the grid; at d = 3 the stored d = 2 rules
+    # end at the same degree as the d = 3 ones, so the fallback there is the bare grid)
+    q = max(r.q for r in available("gh") if r.d == 4) + 1
+    X, w = ghpos(4, q, pragmatic=True)
+    assert X.shape == (nnodes("gh", 4, q, pragmatic=True), 4)
     assert np.all(w > 0) and np.sum(w) == pytest.approx(1)
     assert exactness_error(X, w, 2 * q - 1, "gh") < GATE
-    assert X.shape[0] < q**3
+    assert X.shape[0] < q**4
     # beyond the stored dimensions
     for fam, f in F.items():
         for d, q in ((6, 4), (7, 3), (8, 2)):

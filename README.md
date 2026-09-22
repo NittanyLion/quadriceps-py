@@ -130,7 +130,7 @@ on every rule, is `1e-11`. The measured value of each rule is in the catalog (`r
 ## Whose rules these are
 
 <!-- BEGIN GENERATED credits -->
-120 of the 146 rules were computed from scratch by the author. A further 11 (Legendre) rules were
+116 of the 142 rules were computed from scratch by the author. A further 11 (Legendre) rules were
 obtained by node elimination started from Diallo and Worku's published rules. Finally, 15 are
 rules from the literature (copied in, or found again by the author's search and recognized).
 <!-- END GENERATED credits -->
