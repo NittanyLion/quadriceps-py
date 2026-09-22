@@ -9,7 +9,7 @@ description = "Positive-weight cubature rules for the Gaussian weight and the cu
 readme = "README.md"
 requires-python = ">=3.9"
 license = "MIT"
-license-files = ["LICENSE"]
+license-files = ["LICENSE", "NOTICE.md"]
 authors = [{ name = "Joris Pinkse", email = "pinkse@gmail.com" }]
 dependencies = ["numpy>=1.22"]
 
