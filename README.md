@@ -6,9 +6,9 @@
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 ![authored by: JP](authored_by.svg)
 
-> **Paper:** Joris Pinkse, *Positive weight Hermite and Legendre quadrature rules* — arXiv: **[ARXIV-LINK-TBA](https://arxiv.org/abs/ARXIV-LINK-TBA)** (link to be filled in on publication)
+> **Paper:** Joris Pinkse, *Positive weight Hermite and Legendre quadrature rules* (2026) — Zenodo, DOI: **[10.5281/zenodo.22904159](https://doi.org/10.5281/zenodo.22904159)**
 >
-> **Data deposit:** Zenodo — DOI: **[10.5281/zenodo.22881864](https://doi.org/10.5281/zenodo.22881864)** (reserved; the link resolves once the record is published)
+> **Data deposit:** Zenodo — DOI: **[10.5281/zenodo.22881864](https://doi.org/10.5281/zenodo.22881864)**
 
 Positive-weight cubature rules in several dimensions, for two weights:
 
