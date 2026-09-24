@@ -1,10 +1,10 @@
-<p align="center"><img src="logo.svg" alt="Quadriceps logo" width="200"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/NittanyLion/quadriceps-py/main/logo.svg" alt="Quadriceps logo" width="200"></p>
 
 # quadriceps (Python)
 
 [![CI](https://github.com/NittanyLion/quadriceps-py/actions/workflows/ci.yml/badge.svg)](https://github.com/NittanyLion/quadriceps-py/actions/workflows/ci.yml)
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
-![authored by: JP](authored_by.svg)
+![authored by: JP](https://raw.githubusercontent.com/NittanyLion/quadriceps-py/main/authored_by.svg)
 
 > **Paper:** Joris Pinkse, *Positive weight Hermite and Legendre quadrature rules* (2026) — **[arXiv:2609.26840](https://arxiv.org/abs/2609.26840)**; Zenodo, DOI: **[10.5281/zenodo.22904159](https://doi.org/10.5281/zenodo.22904159)**
 >
