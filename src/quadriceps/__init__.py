@@ -29,5 +29,5 @@ from ._catalog import RuleInfo, available
 from ._plan import NoRuleError
 from ._verify import exactness_error
 
-__version__ = "0.1.0"
+__version__ = "0.2.0"
 __all__ = ["NoRuleError", "RuleInfo", "available", "exactness_error", "ghpos", "lepos", "nnodes", "ruleinfo"]
